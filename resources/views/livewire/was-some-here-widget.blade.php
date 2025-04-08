@@ -7,7 +7,7 @@
         </button>
         @if ($value)
             <p class="font-light text-sm mt-2 text-blue-100">
-                the first visit was {{ $firstVisitTime->diffForHumans() }} ago!
+                the first visit was {{ $firstVisitTime->diffForHumans() }}!
             </p>
         @endif
     </header>
