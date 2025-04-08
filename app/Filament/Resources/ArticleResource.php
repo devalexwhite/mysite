@@ -17,7 +17,7 @@ class ArticleResource extends Resource
 {
     protected static ?string $model = Article::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
     {
@@ -29,10 +29,7 @@ class ArticleResource extends Resource
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\Toggle::make('published')
-                    ->required(),
-                Forms\Components\TextInput::make('user_id')
                     ->required()
-                    ->numeric(),
             ]);
     }
 
@@ -55,9 +52,11 @@ class ArticleResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('published')
+                    ->sortable()
                     ->boolean(),
-                Tables\Columns\TextColumn::make('user_id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Author')
+                    ->searchable()
                     ->sortable(),
             ])
             ->filters([
