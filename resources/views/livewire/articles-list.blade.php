@@ -2,7 +2,7 @@
     <ul class="flex flex-col gap-2 mt-8">
         @foreach($articles as $article)
             <li>
-                <a href="#" class="text-white font-bold">
+                <a href="{{ route('articles.show', ['article' => $article]) }}" class="text-white font-bold">
                     <span
                         class="font-light text-blue-200 w-32 inline-block pr-4">{{ $article->created_at->diffForHumans() }}</span>
                     <span class="underline">{{ $article->title }}</span>

@@ -5,13 +5,13 @@ namespace App\Livewire;
 use App\Models\Article;
 use Livewire\Component;
 
-class NewArticlesList extends Component
+class ArticlesList extends Component
 {
     public $articles;
 
     public $page = 1;
     public $lastPage = false;
-    private $perPage = 5;
+    public $perPage = 5;
 
     public function mount()
     {
@@ -20,7 +20,7 @@ class NewArticlesList extends Component
 
     public function render()
     {
-        return view('livewire.new-articles-list');
+        return view('livewire.articles-list');
     }
 
     public function pageBack()
